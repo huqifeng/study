@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+(function(){
+/*
+	call:
+		方法
+		当某个函数声明的时候系统就默认给这个函数加了一些属性或者放大其中有一个方法为call
+
+	参数：
+		有无数个
+			第一个参数：
+				改变this指向，你写什么this就是什么。
+			第二个参数或第二个参数以后：
+				为实参。（有几个形参就写对应的实参即可）
+
+
+	函数会被：
+		事件调用、函数名+括号、定时器、匿名函数自执行、new、call、apply;
+
+	function fn1(a,b,c){
+		alert(this);
+		alert(a+b+c);
+	}
+
+	fn1.call(document,5,7,2)
+
+	console.dir(fn1)
+
+
+
+	apply:
+		同样能够改变this指向
+	只有2个参数：
+		第一个参数：
+			改变this指向（你写什么this就是什么。）
+		第二个参数：
+			为数据，为实参的集合，有几个形参就在数组中写几个对应的实参。
+
+
+
+	function fn2(a,b){
+		alert(this);
+		alert(a+b);
+	}
+	fn1.apply(document,[5,6])
+	console.dir(fn2);
+*/
+})()
+</script>
+</html>

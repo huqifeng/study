@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+(function(){
+/*
+	继承：
+		才js中，继承就是让一个对象拥有另外一个对象的方法或属性；
+*/
+	function Fn(id){
+		this.name = 'fn';
+		this.age = 1;
+	}
+	Fn.prototype.init = function(){
+		console.log('init');
+	}
+	Fn.prototype.say = function(){
+		console.log('say');
+	}
+
+
+/*
+	拷贝继承：
+		属性继承：
+			调用父类并且将父类的this修改成子类，这个时候子类就拥有了父类的属性。
+		方法继承：
+			通过for in遍历父类的原型上的方法，赋值给子类的原型，从而达到方法继承的目的。
+*/
+	function Fn2(id){//属性继承：
+		Fn.call(this,id);
+	}
+	for(var attr in Fn.prototype){
+		if(Fn.prototype.hasOwnProperty(attr)){
+			Fn2.prototype[attr] = Fn.prototype[attr]
+		}
+	}
+
+	console.dir(Fn2)
+
+
+
+/*
+	类式继承：
+		属性继承：
+			调用父类并且将父类的this修改成子类，这个时候子类就拥有了父类的属性。
+		方法继承：
+			通过新建一个对象进行引导，修改子类的方法和属性，不会影响父类的方法和属性
+*/
+	function Fn3(id){//属性继承：
+
+		Fn.call(this,id);
+	}
+	paohui.prototype = Fn.prototype;
+
+	function paohui(){};
+	var ph = new paohui;
+
+	console.dir(Fn3);
+
+/*
+	对象继承
+*/
+	var obj = {
+		say:function(){
+			console.log(5)
+		},
+		running:function(){
+			console.log(2)
+		}
+	}
+	paoh.prototype = obj;
+	function paoh(){};
+	var ph = new paoh;
+	var obj2 = ph;
+
+	obj2.say = function(){
+		console.log(6)
+	}
+
+	obj2.say();
+	obj.say();
+
+})()
+</script>
+</html>

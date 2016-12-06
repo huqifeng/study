@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+(function(){
+/*
+	因为简单类型的赋值就是赋值
+		简单类型的赋值不会影响另外一个数据
+	而对象的赋值就是赋址
+		对象类型赋值都是引用一个内存地址，所以说，改变arr2，同样会改变arr
+	解决：
+		通过循环，将对象的每个简单类型赋值给另外一个对象，就不会出现引用关系。
+
+*/
+	var obj = {
+		name:'momo',
+		age:18
+	}
+
+	var obj2 = {};
+	for(var attr in obj){
+		obj2[attr] = obj[attr];
+	}
+
+
+	obj2.name = 'fq'
+	console.log(obj.name);
+	console.log(obj2.name);
+
+
+
+})()
+</script>
+</html>
